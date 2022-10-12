@@ -41,10 +41,10 @@ First, a set of warm-up problems for everyone
 humanOfficers.count
 
 
-
 // Q1: What percentage of humans are female?
-let ratio: Double = Double(femaleOfficers.count) / Double(humanOfficers.count)
-
+let females = humanOfficers.filter{ femaleOfficers.contains($0) }
+let percent: Double = 100.0 * Double(females.count) / Double(humanOfficers.count)
+percent
 
 
 // Q2: How many first officers are human?
@@ -105,7 +105,7 @@ vulcanFirstOfficers
 
 
 // Q7: How many these Vulcan first officers have names shorter than 5 characters?
-let count = vulcanFirstOfficers.reduce(0) { $1.name.count <= 5 ? $0 + 1 : $0 }
+let count = vulcanFirstOfficers.reduce(0) { $1.name.count < 5 ? $0 + 1 : $0 }
 count
 
 
